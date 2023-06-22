@@ -11,7 +11,7 @@ fi
 sleep 1
 
 besu \
- --genesis-file=genesis.json \
+ --genesis-file=genesis_validator.json \
  --node-private-key-file=nodes/config/node${ID} \
  --p2p-host=0.0.0.0 \
  --p2p-port=3030${ID} \
