@@ -1,0 +1,19 @@
+{
+    "algorithm": "qbft",
+    "nodes": [
+      {
+        "name": "node1",
+        "client": "besu",
+        "rpcUrl": "http://host.docker.internal:22001",
+        "privateTxUrl": ""
+      },
+      {
+        "name": "node2",
+        "client": "besu",
+        "rpcUrl": "http://host.docker.internal:22002",
+        "privateTxUrl": ""
+      }
+    ]
+  }
+   
+  
