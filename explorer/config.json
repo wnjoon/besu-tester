@@ -12,6 +12,12 @@
         "client": "besu",
         "rpcUrl": "http://host.docker.internal:22002",
         "privateTxUrl": ""
+      },
+      {
+        "name": "node3",
+        "client": "besu",
+        "rpcUrl": "http://host.docker.internal:22003",
+        "privateTxUrl": ""
       }
     ]
   }

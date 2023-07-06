@@ -1,0 +1,105 @@
+---
+version: '3.6'
+
+x-siratoapi-ref:
+  &siratoapi-def
+  image: web3labs/epirus-free-api:latest
+  container_name: siratoapi
+  environment:
+    - NODE_ENDPOINT=http://host.docker.internal:22001
+    - MONGO_CLIENT_URI=mongodb://siratomongodb:27017
+    - REINDEX_ENDPOINT=http://siratoingestion/reindex/
+    - MONGO_DB_NAME=epirus
+    - MONGO_CREATE_INDICES=true
+  depends_on:
+    - siratomongodb
+
+x-siratomongodb-ref:
+  &siratomongodb-def
+  image: mongo:5.0.8
+  container_name: siratomongodb
+  environment:
+    - COMPOSE_HTTP_TIMEOUT=900
+    - DOCKER_CLIENT_TIMEOUT=900
+  entrypoint: mongod --bind_ip "0.0.0.0"
+
+x-siratoweb-ref:
+  &siratoweb-def
+  image: web3labs/epirus-free-web:latest
+  container_name: siratoweb
+  environment:
+    - API_URL=/api
+    - DISPLAY_NETWORK_TAB=disabled
+  depends_on:
+    - siratoapi
+
+x-siratoingestion-ref:
+  &siratoingestion-def
+  image: web3labs/epirus-free-ingestion:latest
+  container_name: siratoingestion
+  environment:
+    - NODE_ENDPOINT=http://host.docker.internal:22001
+    - MONGO_CLIENT_URI=mongodb://siratomongodb:27017
+    - MONGO_DB_NAME=epirus
+  depends_on:
+    - siratomongodb
+    - siratoweb
+
+x-siratonginx-ref:
+  &siratonginx-def
+  image: nginx:latest
+  container_name: siratonginx
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    - ./5xx.html:/www/error_pages/5xx.html
+  ports:
+    - 8081:80
+  depends_on:
+    - siratoapi
+    - siratoweb
+
+services:
+
+  siratoapi:
+    <<: *siratoapi-def
+    platform: linux/amd64
+    networks:
+      sirato-network:
+        ipv4_address: 172.16.239.61
+
+  siratomongodb:
+    <<: *siratomongodb-def
+    platform: linux/amd64
+    networks:
+      sirato-network:
+        ipv4_address: 172.16.239.62
+
+  siratoingestion:
+    <<: *siratoingestion-def
+    platform: linux/amd64
+    networks:
+      sirato-network:
+        ipv4_address: 172.16.239.63
+
+  siratoweb:
+    <<: *siratoweb-def
+    platform: linux/amd64
+    networks:
+      sirato-network:
+        ipv4_address: 172.16.239.64
+
+  siratonginx:
+    <<: *siratonginx-def
+    platform: linux/amd64
+    networks:
+      sirato-network:
+        ipv4_address: 172.16.239.65
+
+
+networks:
+  sirato-network:
+    name: sirato-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.239.0/24

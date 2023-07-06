@@ -1,0 +1,68 @@
+{
+    "mode": "orion",
+    "useWhiteList": false,
+    "jdbc": {
+        "username": "sa",
+        "password": "",
+        "url": "jdbc:h2:./tessera1/data/tm/db;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=0",
+        "autoCreateTables": true
+    },
+    "serverConfigs": [
+        {
+            "app": "ThirdParty",
+            "enabled": true,
+            "serverAddress": "http://localhost:9081",
+            "communicationType": "REST"
+        },
+        {
+            "app": "Q2T",
+            "enabled": true,
+            "serverAddress": "http://localhost:9101",
+            "sslConfig": {
+                "tls": "OFF"
+            },
+            "communicationType": "REST"
+        },
+        {
+            "app": "P2P",
+            "enabled": true,
+            "serverAddress": "http://localhost:9001",
+            "sslConfig": {
+                "tls": "OFF"
+            },
+            "communicationType": "REST"
+        }
+    ],
+    "peer": [
+        {
+            "url": "http://localhost:9001"
+        },
+        {
+            "url": "http://localhost:9002"
+        },
+        {
+            "url": "http://localhost:9003"
+        },
+        {
+            "url": "http://localhost:9004"
+        },
+        {
+            "url": "http://localhost:9005"
+        }
+    ],
+    "keys": {
+        "passwords": [],
+        "keyData": [
+            {
+              "privateKeyPath": "./keys/key1/key.key",
+              "publicKeyPath": "./keys/key1/key.pub"
+            }
+        ]
+    },
+    "alwaysSendTo": [],
+    "bootstrapNode": false,
+    "features": {
+        "enableRemoteKeyValidation": false,
+        "enablePrivacyEnhancements": true
+    }
+}
