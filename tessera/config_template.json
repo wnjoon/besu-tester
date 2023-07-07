@@ -39,15 +39,6 @@
         },
         {
             "url": "http://localhost:9002"
-        },
-        {
-            "url": "http://localhost:9003"
-        },
-        {
-            "url": "http://localhost:9004"
-        },
-        {
-            "url": "http://localhost:9005"
         }
     ],
     "keys": {
