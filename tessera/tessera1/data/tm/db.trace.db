@@ -1,16 +1,16 @@
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ENCRYPTED_TRANSACTION" not found (this database is empty); SQL statement:
 SELECT 1 FROM ENCRYPTED_TRANSACTION [42104-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ENCRYPTED_RAW_TRANSACTION" not found; SQL statement:
 SELECT 1 FROM ENCRYPTED_RAW_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRIVACY_GROUP" not found; SQL statement:
 SELECT 1 FROM PRIVACY_GROUP [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 ALTER TABLE ST_AFFECTED_TRANSACTION DROP CONSTRAINT FK_ST_AFFECTED_TRANSACTION_TXN_ID [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_VALSTG" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -81,7 +81,7 @@ DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_HASH" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -152,13 +152,13 @@ DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_AFFECTED_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_VALSTG" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -229,7 +229,7 @@ DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_HASH" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -300,13 +300,13 @@ DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_AFFECTED_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_VALSTG" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -377,7 +377,7 @@ DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_HASH" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -448,13 +448,13 @@ DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_AFFECTED_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_VALSTG" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -525,7 +525,7 @@ DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_HASH" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -596,13 +596,13 @@ DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_AFFECTED_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_VALSTG" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -673,7 +673,7 @@ DROP INDEX ST_TRANSACTION_VALSTG [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Index "ST_TRANSACTION_HASH" not found; SQL statement:
 DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
@@ -744,15 +744,15 @@ DROP INDEX ST_TRANSACTION_HASH [42112-214]
 	at java.base/java.util.ServiceLoader.findFirst(ServiceLoader.java:1812)
 	at tessera.recovery@23.4.0/com.quorum.tessera.recovery.workflow.BatchResendManager.create(BatchResendManager.java:15)
 	at tessera.application@23.4.0/com.quorum.tessera.launcher.Main.main(Main.java:102)
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 DROP TABLE ST_AFFECTED_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_TRANSACTION" not found; SQL statement:
 SELECT 1 FROM ST_TRANSACTION [42102-214]
-2023-07-06 17:07:35 jdbc[3]: exception
+2023-07-13 14:35:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ST_AFFECTED_TRANSACTION" not found; SQL statement:
 SELECT 1 FROM ST_AFFECTED_TRANSACTION [42102-214]
