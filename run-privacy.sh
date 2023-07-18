@@ -36,5 +36,5 @@ besu \
  --logging=${LOGLEVEL} \
  --privacy-enabled \
  --privacy-url=http://${TESSERAIP}:910${ID} \
- --privacy-public-key-file=${PWD}/tessera/keys/key${ID}/key.pub \
+ --privacy-public-key-file=${PWD}/tessera/keys/peer${ID}/key.pub \
  --data-path=nodes/node${ID}/data ;

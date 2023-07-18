@@ -9,6 +9,21 @@
     },
     "serverConfigs": [
         {
+            "app": "ThirdParty",
+            "enabled": true,
+            "serverAddress": "http://localhost:9081",
+            "communicationType": "REST"
+        },
+        {
+            "app": "Q2T",
+            "enabled": true,
+            "serverAddress": "http://localhost:9101",
+            "sslConfig": {
+                "tls": "OFF"
+            },
+            "communicationType": "REST"
+        },
+        {
             "app": "P2P",
             "enabled": true,
             "serverAddress": "http://localhost:9001",
@@ -19,18 +34,21 @@
         }
     ],
     "peer": [
+        {
+            "url": "http://localhost:9000"
+        }
     ],
     "keys": {
         "passwords": [],
         "keyData": [
             {
-              "privateKeyPath": "./keys/key1/key.key",
-              "publicKeyPath": "./keys/key1/key.pub"
+              "privateKeyPath": "./keys/peer1/key.key",
+              "publicKeyPath": "./keys/peer1/key.pub"
             }
         ]
     },
     "alwaysSendTo": [],
-    "bootstrapNode": true,
+    "bootstrapNode": false,
     "features": {
         "enableRemoteKeyValidation": false,
         "enablePrivacyEnhancements": true

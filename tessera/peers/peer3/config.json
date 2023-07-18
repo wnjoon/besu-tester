@@ -4,20 +4,20 @@
     "jdbc": {
         "username": "sa",
         "password": "",
-        "url": "jdbc:h2:./tessera2/data/tm/db;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=0",
+        "url": "jdbc:h2:./tessera3/data/tm/db;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=0",
         "autoCreateTables": true
     },
     "serverConfigs": [
         {
             "app": "ThirdParty",
             "enabled": true,
-            "serverAddress": "http://localhost:9082",
+            "serverAddress": "http://localhost:9083",
             "communicationType": "REST"
         },
         {
             "app": "Q2T",
             "enabled": true,
-            "serverAddress": "http://localhost:9102",
+            "serverAddress": "http://localhost:9103",
             "sslConfig": {
                 "tls": "OFF"
             },
@@ -26,7 +26,7 @@
         {
             "app": "P2P",
             "enabled": true,
-            "serverAddress": "http://localhost:9002",
+            "serverAddress": "http://localhost:9003",
             "sslConfig": {
                 "tls": "OFF"
             },
@@ -35,15 +35,15 @@
     ],
     "peer": [
         {
-            "url": "http://localhost:9001"
+            "url": "http://localhost:9000"
         }
     ],
     "keys": {
         "passwords": [],
         "keyData": [
             {
-              "privateKeyPath": "./keys/key2/key.key",
-              "publicKeyPath": "./keys/key2/key.pub"
+              "privateKeyPath": "./keys/peer3/key.key",
+              "publicKeyPath": "./keys/peer3/key.pub"
             }
         ]
     },

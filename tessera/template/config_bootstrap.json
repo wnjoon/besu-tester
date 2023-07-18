@@ -11,7 +11,7 @@
         {
             "app": "P2P",
             "enabled": true,
-            "serverAddress": "http://localhost:900_id_",
+            "serverAddress": "http://localhost:9000",
             "sslConfig": {
                 "tls": "OFF"
             },
@@ -24,8 +24,8 @@
         "passwords": [],
         "keyData": [
             {
-              "privateKeyPath": "./keys/key_id_/key.key",
-              "publicKeyPath": "./keys/key_id_/key.pub"
+              "privateKeyPath": "./keys/bootstrap/key.key",
+              "publicKeyPath": "./keys/bootstrap/key.pub"
             }
         ]
     },
