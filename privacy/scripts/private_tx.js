@@ -29,7 +29,7 @@ async function main() {
     await new Promise((r) => setTimeout(r, 20000));
     console.log("Use the smart contracts 'get' function to read the contract's constructor initialized value .. ");
     
-    console.log("get value - success");
+    console.log("get value from node1 using account1");
     await ptm.getValueAtAddress(
       besu.node1.url,
       "node1",
@@ -38,51 +38,79 @@ async function main() {
       accounts.user1.privateKey,
       tessera.peer1.publicKey,
       tessera.peer2.publicKey
-    );
+    )
+    .then(console.log("success\n"))
+    console.log("\n")
+
+    console.log("get value from node1 using account2");
+    await ptm.getValueAtAddress(
+      besu.node1.url,
+      "node1",
+      privateTxReceipt.contractAddress,
+      contractAbi,
+      accounts.user2.privateKey,
+      tessera.peer1.publicKey,
+      tessera.peer2.publicKey
+    )
+    .then(console.log("success\n"))
+    console.log("\n")
     
-    console.log("get value - success");
-    await ptm.getValueAtAddress(
-      besu.node2.url,
-      "node2",
-      privateTxReceipt.contractAddress,
-      contractAbi,
-      accounts.user2.privateKey,
-      tessera.peer2.publicKey,
-      tessera.peer1.publicKey
-    );
-
-    console.log("get value - failed (wrong contract address)");
-    await ptm.getValueAtAddress(
-      besu.node2.url,
-      "node2",
-      "0x3f72b022aa96751d66f4205f014e189cac8bc995",
-      contractAbi,
-      accounts.user2.privateKey,
-      tessera.peer2.publicKey,
-      tessera.peer1.publicKey
-    );
-
-    console.log("get value - failed (wrong privateFor)");
-    await ptm.getValueAtAddress(
-      besu.node2.url,
-      "node2",
-      privateTxReceipt.contractAddress,
-      contractAbi,
-      accounts.user2.privateKey,
-      tessera.peer2.publicKey,
-      tessera.peer3.publicKey
-    );
-
-    console.log("get value - failed (wrong privateFrom)");
+    console.log("get value from node3 using account2 with tessera peer1 (wrong connection");
     await ptm.getValueAtAddress(
       besu.node3.url,
       "node3",
       privateTxReceipt.contractAddress,
       contractAbi,
-      accounts.user3.privateKey,
-      tessera.peer3.publicKey,
-      tessera.peer1.publicKey
-    );
+      accounts.user2.privateKey,
+      tessera.peer1.publicKey,
+      tessera.peer2.publicKey
+    )
+    .then(console.log("success\n"))
+    console.log("\n")
+
+    // console.log("get value from node2 using account2 - success");
+    // await ptm.getValueAtAddress(
+    //   besu.node2.url,
+    //   "node2",
+    //   privateTxReceipt.contractAddress,
+    //   contractAbi,
+    //   accounts.user2.privateKey,
+    //   tessera.peer2.publicKey,
+    //   tessera.peer1.publicKey
+    // );
+
+    // console.log("get value - failed (wrong contract address)");
+    // await ptm.getValueAtAddress(
+    //   besu.node2.url,
+    //   "node2",
+    //   "0x3f72b022aa96751d66f4205f014e189cac8bc995",
+    //   contractAbi,
+    //   accounts.user2.privateKey,
+    //   tessera.peer2.publicKey,
+    //   tessera.peer1.publicKey
+    // );
+
+    // console.log("get value - failed (wrong privateFor)");
+    // await ptm.getValueAtAddress(
+    //   besu.node2.url,
+    //   "node2",
+    //   privateTxReceipt.contractAddress,
+    //   contractAbi,
+    //   accounts.user2.privateKey,
+    //   tessera.peer2.publicKey,
+    //   tessera.peer3.publicKey
+    // );
+
+    // console.log("get value - failed (wrong privateFrom)");
+    // await ptm.getValueAtAddress(
+    //   besu.node3.url,
+    //   "node3",
+    //   privateTxReceipt.contractAddress,
+    //   contractAbi,
+    //   accounts.user3.privateKey,
+    //   tessera.peer3.publicKey,
+    //   tessera.peer1.publicKey
+    // );
 
 
   }).catch(console.error);

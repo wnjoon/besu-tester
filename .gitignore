@@ -1,3 +1,4 @@
 node_modules
 nodes/node*/
 tessera/tessera*/
+blockscoutpostgres
