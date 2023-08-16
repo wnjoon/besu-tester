@@ -1,8 +1,6 @@
 
 genesis-file="genesis.json"
-node-private-key-file="nodes/node1/config/nodekey"
 logging="INFO"
-data-path="nodes/node1/data"
 host-allowlist=["*"]
 min-gas-price=0
 

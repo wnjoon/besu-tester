@@ -1,0 +1,32 @@
+2023.08.02-13:55:36.008[90m debug[39m [caliper] [rateControl.js] 	Constructed a winston logger with the specified settings
+2023.08.02-13:55:36.063[32m info [39m [caliper] [cli-launch-manager] 	Binding specification is present, performing binding for "besu:1.4"
+2023.08.02-13:55:36.064[33m warn [39m [caliper] [bind] 	Working directory not specified. Using "/Users/a85653/Workspace/besu/caliper"
+2023.08.02-13:55:36.064[32m info [39m [caliper] [bind] 	Binding for besu@1.4. This might take some time...
+2023.08.02-13:55:36.065[32m info [39m [caliper] [bind] 	Using working directory: /Users/a85653/Workspace/besu/caliper
+2023.08.02-13:55:36.065[32m info [39m [caliper] [bind] 	Calling npm with: install web3@1.3.0
+2023.08.02-13:55:47.075[32m info [39m [caliper] [cli-launch-manager] 	Set workspace path: /Users/a85653/Workspace/besu/caliper
+2023.08.02-13:55:47.076[32m info [39m [caliper] [cli-launch-manager] 	Set benchmark configuration path: /Users/a85653/Workspace/besu/caliper/benchmarks/scenario/simple/config.yaml
+2023.08.02-13:55:47.076[32m info [39m [caliper] [cli-launch-manager] 	Set network configuration path: /Users/a85653/Workspace/besu/caliper/networks/besu/qbft.json
+2023.08.02-13:55:47.076[32m info [39m [caliper] [cli-launch-manager] 	Set SUT type: ethereum
+2023.08.02-13:55:47.262[32m info [39m [caliper] [benchmark-validator] 	No observer specified, will default to `none`
+2023.08.02-13:55:47.262[32m info [39m [caliper] [caliper-engine] 	Starting benchmark flow
+2023.08.02-13:55:47.266[32m info [39m [caliper] [caliper-engine] 	Network configuration attribute "caliper.command.start" is not present, skipping start command
+2023.08.02-13:55:47.267[32m info [39m [caliper] [caliper-engine] 	Executed "init" step in 0.001 seconds
+2023.08.02-13:55:47.267[32m info [39m [caliper] [ethereum-connector] 	Creating contracts...
+2023.08.02-13:55:47.273[31m error[39m [caliper] [caliper-engine] 	Error while performing "install" step: Error: connection not open on send()
+2023.08.02-13:59:31.299[90m debug[39m [caliper] [rateControl.js] 	Constructed a winston logger with the specified settings
+2023.08.02-13:59:31.357[32m info [39m [caliper] [cli-launch-manager] 	Binding specification is present, performing binding for "besu:1.4"
+2023.08.02-13:59:31.358[33m warn [39m [caliper] [bind] 	Working directory not specified. Using "/Users/a85653/Workspace/besu/caliper"
+2023.08.02-13:59:31.359[32m info [39m [caliper] [bind] 	Binding for besu@1.4. This might take some time...
+2023.08.02-13:59:31.359[32m info [39m [caliper] [bind] 	Using working directory: /Users/a85653/Workspace/besu/caliper
+2023.08.02-13:59:31.359[32m info [39m [caliper] [bind] 	Calling npm with: install web3@1.3.0
+2023.08.02-13:59:32.893[32m info [39m [caliper] [cli-launch-manager] 	Set workspace path: /Users/a85653/Workspace/besu/caliper
+2023.08.02-13:59:32.893[32m info [39m [caliper] [cli-launch-manager] 	Set benchmark configuration path: /Users/a85653/Workspace/besu/caliper/benchmarks/scenario/simple/config.yaml
+2023.08.02-13:59:32.893[32m info [39m [caliper] [cli-launch-manager] 	Set network configuration path: /Users/a85653/Workspace/besu/caliper/networks/besu/qbft.json
+2023.08.02-13:59:32.893[32m info [39m [caliper] [cli-launch-manager] 	Set SUT type: ethereum
+2023.08.02-13:59:33.075[32m info [39m [caliper] [benchmark-validator] 	No observer specified, will default to `none`
+2023.08.02-13:59:33.075[32m info [39m [caliper] [caliper-engine] 	Starting benchmark flow
+2023.08.02-13:59:33.080[32m info [39m [caliper] [caliper-engine] 	Network configuration attribute "caliper.command.start" is not present, skipping start command
+2023.08.02-13:59:33.080[32m info [39m [caliper] [caliper-engine] 	Executed "init" step in 0 seconds
+2023.08.02-13:59:33.080[32m info [39m [caliper] [ethereum-connector] 	Creating contracts...
+2023.08.02-13:59:33.087[31m error[39m [caliper] [caliper-engine] 	Error while performing "install" step: Error: connection not open on send()
