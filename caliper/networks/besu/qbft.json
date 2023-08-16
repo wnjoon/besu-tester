@@ -1,0 +1,23 @@
+{
+    "caliper": {
+        "blockchain": "ethereum"
+    },
+    "ethereum": {
+        "url": "ws://localhost:23001",
+        "contractDeployerAddress": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
+        "contractDeployerAddressPassword": "",
+        "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
+        "fromAddressPassword": "",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "simple": {
+                "path": "./smartcontracts/simple/simple.json",
+                "estimateGas": true,
+                "gas": {
+                    "query": 100000,
+                    "transfer": 70000
+                }
+            }
+        }
+    }
+}
