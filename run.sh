@@ -32,5 +32,6 @@ besu \
  --metrics-host=0.0.0.0 \
  --metrics-port=3200${ID} \
  --min-gas-price=0 \
+ --tx-pool-limit-by-account-percentage=1 \
  --logging=${LOGLEVEL} \
  --data-path=nodes/node${ID}/data ;
