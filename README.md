@@ -5,7 +5,7 @@
 - Privacy-enabled network using Tessera
     - [tessera](./tessera/README.md)
 - Monitoring
-    - [quoroum-explorer](./monitoring/explorer/README.md)
+    - [quorum-explorer](./monitoring/explorer/README.md)
 - Benchmark
     - [Caliper](./benchmark/README.md)
 - Public key generation using its private key
