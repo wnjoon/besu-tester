@@ -154,13 +154,13 @@
                     </tr>
 
                     <tr>
-                         <td>open</td> <td>100</td> <td>0</td> <td>10.1</td> <td>5.04</td> <td>0.13</td> <td>2.57</td> <td>6.9</td>
+                         <td>open</td> <td>1000</td> <td>0</td> <td>200.3</td> <td>1.13</td> <td>0.08</td> <td>0.62</td> <td>177.1</td>
                     </tr>
                     <tr>
-                         <td>query</td> <td>200</td> <td>0</td> <td>10.4</td> <td>0.03</td> <td>0.00</td> <td>0.01</td> <td>10.4</td>
+                         <td>query</td> <td>4000</td> <td>0</td> <td>149.7</td> <td>0.03</td> <td>0.00</td> <td>0.00</td> <td>149.7</td>
                     </tr>
                     <tr>
-                         <td>transfer</td> <td>100</td> <td>0</td> <td>7.9</td> <td>5.04</td> <td>0.17</td> <td>2.37</td> <td>7.5</td>
+                         <td>transfer</td> <td>500</td> <td>0</td> <td>120.9</td> <td>1.11</td> <td>0.07</td> <td>0.61</td> <td>100.4</td>
                     </tr>
                 </table>
             </div>
@@ -170,7 +170,7 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
-    tps: 10
+    tps: 200
 </pre>
                         <h3>Performance metrics for open</h3>
                             <table style="min-width: 100%;">
@@ -178,7 +178,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>open</td> <td>100</td> <td>0</td> <td>10.1</td> <td>5.04</td> <td>0.13</td> <td>2.57</td> <td>6.9</td>
+                                     <td>open</td> <td>1000</td> <td>0</td> <td>200.3</td> <td>1.13</td> <td>0.08</td> <td>0.62</td> <td>177.1</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for open</h3>
@@ -190,7 +190,7 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-feedback-rate
   opts:
-    tps: 10
+    tps: 2000
     maximum_transaction_load: 5
 </pre>
                         <h3>Performance metrics for query</h3>
@@ -199,7 +199,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>query</td> <td>200</td> <td>0</td> <td>10.4</td> <td>0.03</td> <td>0.00</td> <td>0.01</td> <td>10.4</td>
+                                     <td>query</td> <td>4000</td> <td>0</td> <td>149.7</td> <td>0.03</td> <td>0.00</td> <td>0.00</td> <td>149.7</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for query</h3>
@@ -211,8 +211,8 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: linear-rate
   opts:
-    startingTps: 5
-    finishingTps: 20
+    startingTps: 100
+    finishingTps: 200
 </pre>
                         <h3>Performance metrics for transfer</h3>
                             <table style="min-width: 100%;">
@@ -220,7 +220,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>transfer</td> <td>100</td> <td>0</td> <td>7.9</td> <td>5.04</td> <td>0.17</td> <td>2.37</td> <td>7.5</td>
+                                     <td>transfer</td> <td>500</td> <td>0</td> <td>120.9</td> <td>1.11</td> <td>0.07</td> <td>0.61</td> <td>100.4</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for transfer</h3>
@@ -233,40 +233,40 @@
   number: 1
 rounds:
   - label: open
-    txNumber: 100
+    txNumber: 1000
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 200
     workload:
       module: .&#x2F;..&#x2F;..&#x2F;src&#x2F;simple&#x2F;scripts&#x2F;open.js
       arguments:
         accountPhasePrefix: phase1
         money: 10000
   - label: query
-    txNumber: 200
+    txNumber: 4000
     rateControl:
       type: fixed-feedback-rate
       opts:
-        tps: 10
+        tps: 2000
         maximum_transaction_load: 5
     workload:
       module: .&#x2F;..&#x2F;..&#x2F;src&#x2F;simple&#x2F;scripts&#x2F;query.js
       arguments:
-        numberOfAccounts: 100
+        numberOfAccounts: 1000
         accountPhasePrefix: phase1
   - label: transfer
-    txNumber: 100
+    txNumber: 500
     rateControl:
       type: linear-rate
       opts:
-        startingTps: 5
-        finishingTps: 20
+        startingTps: 100
+        finishingTps: 200
     workload:
       module: .&#x2F;..&#x2F;..&#x2F;src&#x2F;simple&#x2F;scripts&#x2F;transfer.js
       arguments:
         accountPhasePrefix: phase1
-        numberOfAccounts: 100
+        numberOfAccounts: 1000
         money: 100
 </pre>
                 <h3>SUT</h3>

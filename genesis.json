@@ -17,7 +17,7 @@
       "grayGlacierBlock": 0,
       "qbft": {
         "epochlength": 30000,
-        "blockperiodseconds": 5,
+        "blockperiodseconds": 1,
         "requesttimeoutseconds": 10
       },
       "contractSizeLimit": 2147483647

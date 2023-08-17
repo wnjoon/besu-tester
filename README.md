@@ -8,6 +8,12 @@
     - [quoroum-explorer](./monitoring/explorer/README.md)
 - Benchmark
     - [Caliper](./benchmark/README.md)
+- Public key generation using its private key
+    - [Besu export/export-address](./nodes/keymapping.sh)
+- extraData
+    - [extraData in genesis.json](./config/README.md)
+
+<br>
 
 ## How To Run
 
@@ -18,6 +24,16 @@
     - Run privacy-enabled Besu node with input parameter value of node number
     - Should [run tessera node](./tessera/README.md) before run this script
     - ```$ ./run-privacy.sh 1```
+
+<br>
+
+## Settings
+
+### 1. Blocktime
+
+In genesis file([genesis.json](./genesis.json)), 'blockperiodseconds' in QBFT config is value for setting block time in seconds. **Default value was 5s, however, it is changed to 1s.**
+
+<br>
 
 ## Sample Accounts
 
