@@ -55,26 +55,23 @@ abstract contract AERC1400 is IERC1400 {
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
+        _isIssuable = true;
 
         // controllable token is default and add deployer to controller
         _controllers.push(msg.sender);
         _isController[msg.sender] = true;
     }
 
+    /* IERC20 functions */
     function totalSupply() public view virtual returns (uint256) {
         return _totalSupply;
     }
 
-    function balanceOf(
-        address tokenHolder
-    ) public view virtual returns (uint256) {
+    function balanceOf(address tokenHolder) public view virtual returns (uint256) {
         return _balances[tokenHolder];
     }
 
-    function transfer(
-        address to, 
-        uint256 value
-    ) public virtual returns (bool) {
+    function transfer(address to, uint256 value) public virtual returns (bool) {
         _transferByPartition(
             DEFAULT_PARTITION,
             msg.sender,
@@ -87,28 +84,18 @@ abstract contract AERC1400 is IERC1400 {
         return true;
     }
 
-    function allowance(
-        address owner,
-        address spender
-    ) public view virtual returns (uint256) {
+    function allowance(address owner, address spender) public view virtual returns (uint256) {
         return _allowed[owner][spender];
     }
 
-    function approve(
-        address spender,
-        uint256 value
-    ) public virtual returns (bool) {
+    function approve(address spender, uint256 value) public virtual returns (bool) {
         require(spender != address(0), "56"); // 0x56	invalid sender
         _allowed[msg.sender][spender] = value;
         emit Approval(msg.sender, spender, value);
         return true;
     }
 
-    function transferFrom(
-        address from,
-        address to,
-        uint256 value
-    ) public virtual returns (bool) {
+    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
         require(value <= _allowed[from][msg.sender], "53"); // 0x53	insufficient allowance
 
         _allowed[from][msg.sender] -= value;
@@ -125,27 +112,83 @@ abstract contract AERC1400 is IERC1400 {
         return true;
     }
 
-    function controllers() public view virtual returns (address[] memory) {
-        return _controllers;
+    /* IERC1643 functions */
+    /* TODO : To be created to other file */
+    
+    /* IERC1400 functions */
+    function balanceOfByPartition(bytes32 partition, address tokenHolder) public view virtual returns (uint256) {
+        return _balanceOfByPartition[tokenHolder][partition];
     }
 
-    function addController(address newController) public virtual {
-        _controllers.push(newController);
+    function partitionsOf(address tokenHolder) public view virtual returns (bytes32[] memory) {
+        return _partitionsOf[tokenHolder];
     }
 
-    // function setControllers(
-    //     address[] calldata operators
-    // ) public virtual {
-    //     for (uint i = 0; i < _controllers.length; i++) {
-    //         _isController[_controllers[i]] = false;
-    //     }
+    function transferWithData(address to, uint256 value, bytes calldata data) public virtual {
+        _transferByPartition(
+            DEFAULT_PARTITION,
+            msg.sender,
+            msg.sender,
+            to,
+            value,
+            data,
+            ""
+        );
+    }
 
-    //     for (uint j = 0; j < operators.length; j++) {
-    //         _isController[operators[j]] = true;
-    //     }
+    function transferFromWithData(address from, address to, uint256 value, bytes calldata data) public virtual {
+        require(_allowed[from][msg.sender] >= value, "53"); // 0x53	insufficient allowance
 
-    //     _controllers = operators;
-    // }
+        _allowed[from][msg.sender] -= value;
+        _transferByPartition(
+            DEFAULT_PARTITION,
+            msg.sender,
+            from,
+            to,
+            value,
+            data,
+            ""
+        );
+    }
+
+    function transferByPartition(bytes32 partition, address to, uint256 value, bytes calldata data) public virtual returns (bytes32) {
+        return
+            _transferByPartition(
+                partition,
+                msg.sender,
+                msg.sender,
+                to,
+                value,
+                data,
+                ""
+            );
+    }
+
+    function operatorTransferByPartition(bytes32 partition, address from, address to, uint256 value, bytes calldata data, bytes calldata operatorData) public virtual returns (bytes32) {
+        require(_isOperatorForPartition(partition, msg.sender, from), "58"); // 0x58	invalid operator (transfer agent)
+
+        if (_isController[msg.sender]) {
+            emit ControllerTransfer(
+                msg.sender,
+                from,
+                to,
+                value,
+                data,
+                operatorData
+            );
+        }
+
+        return
+            _transferByPartition(
+                partition,
+                msg.sender,
+                from,
+                to,
+                value,
+                data,
+                operatorData
+            );
+    }
 
     // 요청자(msg.sender)의 권한을 operator에게 부여
     function authorizeOperator(address operator) public virtual {
@@ -216,18 +259,7 @@ abstract contract AERC1400 is IERC1400 {
             _isController[operator]); // 추가
     }
 
-    function balanceOfByPartition(
-        bytes32 partition,
-        address tokenHolder
-    ) public view virtual returns (uint256) {
-        return _balanceOfByPartition[tokenHolder][partition];
-    }
-
-    function partitionsOf(
-        address tokenHolder
-    ) public view virtual returns (bytes32[] memory) {
-        return _partitionsOf[tokenHolder];
-    }
+    
 
     function allowanceByPartition(
         bytes32 partition,
@@ -237,92 +269,9 @@ abstract contract AERC1400 is IERC1400 {
         return _allowed[owner][spender];
     }
 
-    function transferWithData(
-        address to,
-        uint256 value,
-        bytes calldata data
-    ) public virtual {
-        _transferByPartition(
-            DEFAULT_PARTITION,
-            msg.sender,
-            msg.sender,
-            to,
-            value,
-            data,
-            ""
-        );
-    }
+    
 
-    function transferFromWithData(
-        address from,
-        address to,
-        uint256 value,
-        bytes calldata data
-    ) public virtual {
-        require(_allowed[from][msg.sender] >= value, "53"); // 0x53	insufficient allowance
-
-        _allowed[from][msg.sender] -= value;
-        _transferByPartition(
-            DEFAULT_PARTITION,
-            msg.sender,
-            from,
-            to,
-            value,
-            data,
-            ""
-        );
-    }
-
-    function transferByPartition(
-        bytes32 partition,
-        address to,
-        uint256 value,
-        bytes calldata data
-    ) public virtual returns (bytes32) {
-        return
-            _transferByPartition(
-                partition,
-                msg.sender,
-                msg.sender,
-                to,
-                value,
-                data,
-                ""
-            );
-    }
-
-    function operatorTransferByPartition(
-        bytes32 partition,
-        address from,
-        address to,
-        uint256 value,
-        bytes calldata data,
-        bytes calldata operatorData
-    ) public virtual returns (bytes32) {
-        require(_isOperatorForPartition(partition, msg.sender, from), "58"); // 0x58	invalid operator (transfer agent)
-
-        if (_isController[msg.sender]) {
-            emit ControllerTransfer(
-                msg.sender,
-                from,
-                to,
-                value,
-                data,
-                operatorData
-            );
-        }
-
-        return
-            _transferByPartition(
-                partition,
-                msg.sender,
-                from,
-                to,
-                value,
-                data,
-                operatorData
-            );
-    }
+    
 
     /************************************************************************************************/
 
