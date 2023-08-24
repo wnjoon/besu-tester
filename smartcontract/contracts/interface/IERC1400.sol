@@ -23,15 +23,15 @@ interface IERC1400 is IERC20, IERC1643 {
 
     // ****************** Controller Operation ******************
     function isControllable() external view returns (bool);
-    function controllerTransfer(address from, address to, uint256 value, bytes calldata data, bytes calldata operatorData) external;
-    function controllerRedeem(address tokenHolder, uint256 value, bytes calldata data, bytes calldata operatorData) external;
+    // function controllerTransfer(address from, address to, uint256 value, bytes calldata data, bytes calldata operatorData) external; // removed because same action can be achieved with "operatorTransferByPartition"
+    // function controllerRedeem(address tokenHolder, uint256 value, bytes calldata data, bytes calldata operatorData) external; // removed because same action can be achieved with "operatorRedeemByPartition"
 
     // ****************** Operator Management *******************
     function authorizeOperator(address operator) external;
     function revokeOperator(address operator) external;
     function authorizeOperatorByPartition(bytes32 partition, address operator) external;
     function revokeOperatorByPartition(bytes32 partition, address operator) external;
-
+\
     // ****************** Operator Information ******************
     function isOperator(address operator, address tokenHolder) external view returns (bool);
     function isOperatorForPartition(bytes32 partition, address operator, address tokenHolder) external view returns (bool);
